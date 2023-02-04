@@ -40,7 +40,7 @@ public class PlayerAttack : MonoBehaviour
             {
                 IsAttacking = false;
                 _attackTimer = _attackDuration;
-                hit.collider.GetComponent<Renderer>().material.color = Color.white;
+                if(hit.collider != null) hit.collider.GetComponent<Renderer>().material.color = Color.white;
             }
         }
     }

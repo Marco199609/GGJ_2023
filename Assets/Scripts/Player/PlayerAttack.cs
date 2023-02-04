@@ -24,7 +24,7 @@ public class PlayerAttack : MonoBehaviour
                 {
                     IsAttacking = true;
                     hit.collider.GetComponent<HealthComponent>().health--;
-                    hit.collider.GetComponent<Renderer>().material.color = Color.red; //Cuando está bajo ataque, el enemigo se pone rojo
+                    hit.collider.GetComponentInChildren<Renderer>().material.color = Color.red; //Cuando está bajo ataque, el enemigo se pone rojo
                 }
             }
         }
@@ -38,7 +38,7 @@ public class PlayerAttack : MonoBehaviour
             {
                 IsAttacking = false;
                 _attackTimer = _attackDuration; //El contador se resetea
-                if(hit.collider != null) hit.collider.GetComponent<Renderer>().material.color = Color.white; //Cuando el ataque termina, el enemigo vuelve a su color original
+                if(hit.collider != null) hit.collider.GetComponentInChildren<Renderer>().material.color = Color.white; //Cuando el ataque termina, el enemigo vuelve a su color original
             }
         }
     }

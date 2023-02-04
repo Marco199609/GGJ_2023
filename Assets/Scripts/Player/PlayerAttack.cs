@@ -10,21 +10,23 @@ public class PlayerAttack : MonoBehaviour
     private float _attackDuration = 0.6f, _attackTimer; //Esta duración depende de la duración de la animación
 
     private Ray _ray;
+    private RaycastHit _hit;
     public void Attack(bool jumping)
     {
-        RaycastHit hit;
-        _ray.origin = transform.position;
-        _ray.direction = transform.forward;
 
-        if (Physics.Raycast(_ray, out hit, 1))
+        if (Input.GetMouseButtonDown(0) && !jumping && !IsAttacking) //Si está atacando ya, no detecta el click hasta que la animación termine
         {
-            if (hit.collider.CompareTag("Enemy"))
+            IsAttacking = true;
+
+            _ray.origin = transform.position;
+            _ray.direction = transform.forward;
+
+            if (Physics.Raycast(_ray, out _hit, 1))
             {
-                if (Input.GetMouseButtonDown(0) && !jumping && !IsAttacking) //Si está atacando ya, no detecta el click hasta que la animación termine
+                if (_hit.collider.CompareTag("Enemy"))
                 {
-                    IsAttacking = true;
-                    hit.collider.GetComponent<HealthComponent>().health--;
-                    hit.collider.GetComponentInChildren<Renderer>().material.color = Color.red; //Cuando está bajo ataque, el enemigo se pone rojo
+                    _hit.collider.GetComponent<HealthComponent>().health--;
+                    _hit.collider.GetComponentInChildren<Renderer>().material.color = Color.red; //Cuando está bajo ataque, el enemigo se pone rojo
                 }
             }
         }
@@ -38,7 +40,9 @@ public class PlayerAttack : MonoBehaviour
             {
                 IsAttacking = false;
                 _attackTimer = _attackDuration; //El contador se resetea
-                if(hit.collider != null) hit.collider.GetComponentInChildren<Renderer>().material.color = Color.white; //Cuando el ataque termina, el enemigo vuelve a su color original
+
+                //Cuando el ataque termina, el enemigo vuelve a su color original
+                if (_hit.collider != null && _hit.collider.CompareTag("Enemy")) _hit.collider.GetComponentInChildren<Renderer>().material.color = Color.white; 
             }
         }
     }

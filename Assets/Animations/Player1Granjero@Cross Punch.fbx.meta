@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4199e9add0242c44486bc6c86dd44707
+guid: 2904a109529d0b943bcd8f5b3dcaee3f
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
@@ -24,7 +24,7 @@ ModelImporter:
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 1
+    animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -33,11 +33,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Standing Melee Combo Attack Ver. 3
+      name: Cross Punch
       takeName: mixamo.com
       internalID: -203655887218126122
-      firstFrame: 36
-      lastFrame: 142
+      firstFrame: 0
+      lastFrame: 71
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 4485160523104089845}
   - component: {fileID: 689514935439751504}
   - component: {fileID: 3347671404335500698}
+  - component: {fileID: -1051324355262502362}
   m_Layer: 0
   m_Name: Planta Carnivora Roja
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -83,3 +84,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &-1051324355262502362
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3852175374448929871}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.16812687, y: 0.13043347, z: 0.3196637}
+  m_Center: {x: -0.022013456, y: 0.0009636482, z: 0.15850288}

@@ -1,30 +1,32 @@
 using UnityEngine;
 
 [RequireComponent(typeof(PlayerMovement))]
+[RequireComponent(typeof(PlayerRotation))]
 [RequireComponent(typeof(PlayerAnimate))]
 [RequireComponent(typeof(PlayerAttack))]
 public class PlayerController : MonoBehaviour
 {
     [Header("Variables de movimiento")]
-    [SerializeField] private float speed = 12.0f;
-    [SerializeField] private float jumpSpeed = 8.0f;
-    [SerializeField] private float gravity = 20.0f;
+    [SerializeField] private float _speed = 12.0f;
+    [SerializeField] private float _jumpSpeed = 8.0f;
+    [SerializeField] private float _gravity = 20.0f;
     private CharacterController _controller;
 
     [Header("Variables de animación")]
     [SerializeField] private Animator _playerAnimator;
 
-
-
     private PlayerMovement _playerMovement;
+    private PlayerRotation _playerRotation;
     private PlayerAnimate _playerAnimate;
     private PlayerAttack _playerAttack;
+
 
 
     // Start is called before the first frame update
     void Start()
     {
         _playerMovement = GetComponent<PlayerMovement>();
+        _playerRotation = GetComponent<PlayerRotation>();
         _playerAnimate = GetComponent<PlayerAnimate>();
         _playerAttack = GetComponent<PlayerAttack>();
 
@@ -34,7 +36,9 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _playerMovement.Move(_controller, speed, jumpSpeed, gravity, _playerAttack.IsAttacking);
+        _playerMovement.Move(_controller, _speed, _jumpSpeed, _gravity, _playerAttack.IsAttacking);
+
+        _playerRotation.Rotate();
 
         _playerAttack.Attack(_playerMovement.Jumping);
 

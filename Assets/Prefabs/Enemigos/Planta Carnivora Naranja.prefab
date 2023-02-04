@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6779325575494234952}
   - component: {fileID: 8787076995220309890}
   - component: {fileID: 7860351013990205497}
+  - component: {fileID: 543450652541064986}
   m_Layer: 0
   m_Name: Planta Carnivora Naranja
   m_TagString: Enemy
@@ -97,3 +98,16 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.16812687, y: 0.13043347, z: 0.3196637}
   m_Center: {x: -0.022013456, y: 0.0009636482, z: 0.15850288}
+--- !u!114 &543450652541064986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7129492366342399575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80b11cce7f774a446b67246682abf9ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 4

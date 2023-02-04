@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8270219557079510234}
   - component: {fileID: 6134271678624471056}
   - component: {fileID: 7142949694696704206}
+  - component: {fileID: 543450652997941479}
   m_Layer: 0
   m_Name: Planta Carnivora Azul
   m_TagString: Enemy
@@ -97,3 +98,16 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.16812687, y: 0.13043347, z: 0.3196637}
   m_Center: {x: -0.022013456, y: 0.0009636482, z: 0.15850288}
+--- !u!114 &543450652997941479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5629978816031570373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80b11cce7f774a446b67246682abf9ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 4

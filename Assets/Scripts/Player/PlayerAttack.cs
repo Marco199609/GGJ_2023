@@ -20,7 +20,7 @@ public class PlayerAttack : MonoBehaviour
         {
             if (hit.collider.CompareTag("Enemy"))
             {
-                if (Input.GetMouseButtonDown(0) && !jumping)
+                if (Input.GetMouseButtonDown(0) && !jumping && !IsAttacking)
                 {
                     IsAttacking = true;
                     hit.collider.GetComponent<HealthComponent>().health--;

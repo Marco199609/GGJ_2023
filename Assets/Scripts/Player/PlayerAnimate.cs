@@ -13,7 +13,6 @@ public class PlayerAnimate : MonoBehaviour
         AttackAnimation(isAttacking, playerAnimator);
     }
 
-
     private void MoveAnimation(bool jump, Animator playerAnimator)
     {
         if (Input.GetAxisRaw("Horizontal") == 0 && Input.GetAxisRaw("Vertical") == 0)

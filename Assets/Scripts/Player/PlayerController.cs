@@ -21,8 +21,6 @@ public class PlayerController : MonoBehaviour
     private PlayerAttack _playerAttack;
 
 
-
-    // Start is called before the first frame update
     void Start()
     {
         _playerMovement = GetComponent<PlayerMovement>();
@@ -37,11 +35,8 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         _playerMovement.Move(_controller, _speed, _jumpSpeed, _gravity, _playerAttack.IsAttacking);
-
         _playerRotation.Rotate();
-
         _playerAttack.Attack(_playerMovement.Jumping);
-
         _playerAnimate.Animate(_playerMovement.Jumping, _playerAttack.IsAttacking, _playerAnimator);
     }
 }

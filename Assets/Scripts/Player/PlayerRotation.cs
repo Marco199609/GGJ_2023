@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerRotation : MonoBehaviour
 {
     private float _rotateSpeed = 0.5f;
-    public void Rotate()
+    public void Rotate() //Rota al jugador para que mire hacia donde se aprieta el boton de movimiento
     {
         Vector3 currentInput = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
         Vector3 targetRotation = transform.localRotation.eulerAngles;

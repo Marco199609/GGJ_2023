@@ -8,6 +8,8 @@ public class HealthComponent : MonoBehaviour
 
     private void Update()
     {
-        if(health <= 0) Destroy(gameObject);
+        if(health <= 0) Destroy(gameObject); //Elimina el objeto si la salud llega a cero
+
+        //La animación de muerte debe activarse por acá
     }
 }

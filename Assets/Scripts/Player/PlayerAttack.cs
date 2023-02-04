@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-    public bool IsAttacking { get; private set; }
+    public bool IsAttacking { get; private set; } //Avisa a los demas scripts que el jugador está atacando
 
-    private float _attackDuration = 0.6f, _attackTimer; //Sacar esto de la duracion de la animation
+    private float _attackDuration = 0.6f, _attackTimer; //Esta duración depende de la duración de la animación
 
     private Ray _ray;
     public void Attack(bool jumping)
@@ -20,27 +20,25 @@ public class PlayerAttack : MonoBehaviour
         {
             if (hit.collider.CompareTag("Enemy"))
             {
-                if (Input.GetMouseButtonDown(0) && !jumping && !IsAttacking)
+                if (Input.GetMouseButtonDown(0) && !jumping && !IsAttacking) //Si está atacando ya, no detecta el click hasta que la animación termine
                 {
                     IsAttacking = true;
                     hit.collider.GetComponent<HealthComponent>().health--;
-                    hit.collider.GetComponent<Renderer>().material.color = Color.red;
+                    hit.collider.GetComponent<Renderer>().material.color = Color.red; //Cuando está bajo ataque, el enemigo se pone rojo
                 }
             }
         }
 
-
-
-
-        //Contador para la animacion
+        //Contador que ataca de acuerdo a la duración de la animación
         if (IsAttacking)
         {
             _attackTimer -= Time.deltaTime;
+
             if(_attackTimer <= 0)
             {
                 IsAttacking = false;
-                _attackTimer = _attackDuration;
-                if(hit.collider != null) hit.collider.GetComponent<Renderer>().material.color = Color.white;
+                _attackTimer = _attackDuration; //El contador se resetea
+                if(hit.collider != null) hit.collider.GetComponent<Renderer>().material.color = Color.white; //Cuando el ataque termina, el enemigo vuelve a su color original
             }
         }
     }

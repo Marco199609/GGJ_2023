@@ -14,7 +14,6 @@ public class PlayerMovement : MonoBehaviour
             Jumping = false;
 
             _moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-            //_moveDirection = transform.TransformDirection(_moveDirection);
             _moveDirection.x *= speed / 2; //El movimento horizontal es mas lento para mayor control
             _moveDirection.z *= speed;
 

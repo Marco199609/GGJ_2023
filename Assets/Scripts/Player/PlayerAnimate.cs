@@ -5,12 +5,14 @@ using UnityEngine;
 public class PlayerAnimate : MonoBehaviour
 {
     private bool _idle, _run;
+    private HealthComponent _healthComponent;
 
     public void Animate(bool jump, bool isAttacking, Animator playerAnimator)
     {
 
         MoveAnimation(jump, playerAnimator);
         AttackAnimation(isAttacking, playerAnimator);
+        DeathAnimation(playerAnimator);
     }
 
     private void MoveAnimation(bool jump, Animator playerAnimator)
@@ -35,5 +37,15 @@ public class PlayerAnimate : MonoBehaviour
     private void AttackAnimation(bool isAttacking, Animator playerAnimator)
     {
         playerAnimator.SetBool("Attack", isAttacking);
+    }
+
+    private void DeathAnimation(Animator playerAnimator)
+    {
+        if (_healthComponent == null) _healthComponent = GetComponent<HealthComponent>();
+
+        if (_healthComponent.health <= 0)
+        {
+            playerAnimator.SetBool("Die", true);
+        }
     }
 }

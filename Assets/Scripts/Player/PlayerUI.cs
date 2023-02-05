@@ -27,6 +27,7 @@ public class PlayerUI : MonoBehaviour
 
     private void HealthUI(GameObject[] UIImages,  HealthComponent health)
     {
+        if (health.health <= 0) _healthUIIndex = 0;
         if (health.health > 0 && health.health < 20) _healthUIIndex = 1;
         if (health.health >= 20 && health.health < 40) _healthUIIndex = 2;
         if (health.health >= 40 && health.health < 60) _healthUIIndex = 3;
@@ -40,10 +41,7 @@ public class PlayerUI : MonoBehaviour
             else
                 UIImages[i].gameObject.SetActive(false);
         }
-
-
     }
-
 
     private void EnemyHealthUI(GameObject playerModel, GameObject enemyUI, GameObject enemyUIHealth)
     {

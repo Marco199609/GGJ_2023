@@ -15,6 +15,7 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Vuelve al menu principal cuando le das esc
         if(Input.GetKeyDown(KeyCode.Escape))
         {
             Cursor.lockState = CursorLockMode.None;

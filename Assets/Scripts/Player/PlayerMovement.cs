@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -13,9 +14,11 @@ public class PlayerMovement : MonoBehaviour
         {
             Jumping = false;
 
-            _moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-            _moveDirection.x *= speed / 2; //El movimento horizontal es mas lento para mayor control
-            _moveDirection.z *= speed;
+            float horizontal = Input.GetAxis("Horizontal");
+            float vertical = Input.GetAxis("Vertical");
+            _moveDirection = (transform.right * horizontal + Camera.main.transform.forward * vertical).normalized * speed;
+
+            print(_moveDirection);
 
             if (Input.GetButtonDown("Jump"))
             {

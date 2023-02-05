@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class FollowObject : MonoBehaviour
 {
-    [SerializeField] private Transform _followTransform;
+    [SerializeField] private Transform _followTransform, _lookAtTransform;
     [SerializeField] private Vector3 _followOffset, _lookOffset;
     [SerializeField] private float _followSpeed = 0.3f;
     [SerializeField] private bool _lookAtObject;
@@ -22,8 +22,8 @@ public class FollowObject : MonoBehaviour
 
         if (_lookAtObject)
         {
-            Vector3 targetLookAtPosition = new Vector3(_followTransform.position.x + _lookOffset.x,
-                _followTransform.position.y + _lookOffset.y, _followTransform.position.z + _lookOffset.z);
+            Vector3 targetLookAtPosition = new Vector3(_lookAtTransform.position.x + _lookOffset.x,
+                _lookAtTransform.position.y + _lookOffset.y, _lookAtTransform.position.z + _lookOffset.z);
 
             transform.LookAt(targetLookAtPosition);
         }

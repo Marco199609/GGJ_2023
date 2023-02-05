@@ -35,7 +35,7 @@ public class EnemyController : MonoBehaviour
         if (_attack)
             _attackScript.Attack();
         
-        //_animateScript.ActiveAnimation(_player,_attackScript.IsAttacking,animator);
+        _animateScript.ActiveAnimation(_player,_attackScript.IsAttacking,animator);
         
     }
 }

@@ -7,7 +7,7 @@ public class EnemyAttack : MonoBehaviour
 {
     
     public bool IsAttacking { get; set; }
-    private float _attackDuration = 2f, _attackTimer;
+    private float _attackDuration = 1f, _attackTimer;
     private Ray _ray;
 
     private void Start()
@@ -17,21 +17,18 @@ public class EnemyAttack : MonoBehaviour
 
     public void Attack()
     {
-        RaycastHit hit;
-        _ray.origin = transform.position;
-        _ray.direction = transform.forward;
+        var player = FindObjectOfType<PlayerController>();
 
-        if (Physics.Raycast(_ray, out hit, 1))
+        if (Vector3.Distance(player.transform.position,transform.position)<2)
         {
-            if (hit.collider.GetComponent<PlayerController>()!=null)
+            if (player!=null)
             {
                 if (!IsAttacking)
                 {
                     IsAttacking = true;
                     
-                    var playerCollider = hit.collider;
-                    StartCoroutine("AnimatedHit",playerCollider);
-                    var healthPlayer = playerCollider.GetComponent<HealthComponent>();
+                    StartCoroutine("AnimatedHit",player);
+                    var healthPlayer = player.GetComponent<HealthComponent>();
                     if (healthPlayer.shield > 0)
                         healthPlayer.shield--;
                     else
@@ -54,13 +51,20 @@ public class EnemyAttack : MonoBehaviour
         
     }
 
-    IEnumerator AnimatedHit(Collider playerCollider)
+    IEnumerator AnimatedHit(PlayerController playerCollider)
     {
+        var materials = playerCollider.GetComponentsInChildren<Renderer>();
         for (int i = 0; i < 4; i++)
         {
-            playerCollider.GetComponentInChildren<Renderer>().material.color = Color.red;
+            foreach (var material in materials)
+            {
+                material.material.color = Color.red;
+            }
             yield return new WaitForSeconds(.08f);    
-            playerCollider.GetComponentInChildren<Renderer>().material.color = Color.white;
+            foreach (var material in materials)
+            {
+                material.material.color = Color.white;
+            }
             yield return new WaitForSeconds(.08f); 
         }
     }
@@ -68,6 +72,10 @@ public class EnemyAttack : MonoBehaviour
 
     private void OnDestroy()
     {
-        FindObjectOfType<PlayerController>().GetComponentInChildren<Renderer>().material.color = Color.white;
+        var materials = FindObjectOfType<PlayerController>().GetComponentsInChildren<Renderer>();
+        foreach (var material in materials)
+        {
+            material.material.color = Color.white;
+        }
     }
 }

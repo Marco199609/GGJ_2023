@@ -21,8 +21,8 @@ public class EnemyAnimate : MonoBehaviour
         
         
         
-        //enemyAnimator.SetBool("Idle", _idle);
-        //enemyAnimator.SetBool("Attack", isAttack);
+        enemyAnimator.SetBool("Idle", _idle);
+        enemyAnimator.SetBool("Attack", isAttack);
         //enemyAnimator.SetBool("Ground", _ground);
         
     }

@@ -22,7 +22,7 @@ public class EnemyPlantHumanoidController : MonoBehaviour
         {
             transform.position = Vector3.MoveTowards(transform.position, _playerController.transform.position, 1.5f*Time.deltaTime);
             var dir = _playerController.transform.position;
-            dir.y = 0.5f;
+            dir.y = transform.position.y;
             transform.LookAt(dir);
             run = true;
         }

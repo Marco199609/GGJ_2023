@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
@@ -11,7 +12,7 @@ public class PlayerAttack : MonoBehaviour
 
     private Ray _ray;
     private RaycastHit _hit;
-    public void Attack(GameObject playerModel, bool jumping, int playerDamage)
+    public void Attack(GameObject playerModel, bool jumping, int playerDamage, AudioSource audioSource, AudioClip attackSound)
     {
 
         if (Input.GetMouseButtonDown(0) && !jumping && !IsAttacking) //Si está atacando ya, no detecta el click hasta que la animación termine
@@ -26,6 +27,8 @@ public class PlayerAttack : MonoBehaviour
                 if (_hit.collider.CompareTag("Enemy"))
                 {
                     _hit.collider.GetComponent<HealthComponent>().health -= playerDamage;
+
+                    audioSource.PlayOneShot(attackSound);
 
                     for(int i  = 0; i < _hit.collider.GetComponentInChildren<Renderer>().materials.Length; i++)
                     {
@@ -53,6 +56,14 @@ public class PlayerAttack : MonoBehaviour
                         _hit.collider.GetComponentInChildren<Renderer>().materials[i].color = Color.white; //Cuando termina el ataque, el material vuelva a su color original
                     }
                 }
+            }
+
+            //Reproduce el sonido de ataque a la mitad
+
+            if(_hit.collider != null && _hit.collider.CompareTag("Enemy") && _attackTimer <= _attackDuration / 2)
+            {
+                if(!audioSource.isPlaying && _attackTimer > ((_attackDuration / 2) - 0.2f))
+                    audioSource.PlayOneShot(attackSound);
             }
         }
     }

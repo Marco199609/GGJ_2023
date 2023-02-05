@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 57490077}
   - component: {fileID: 57490076}
   m_Layer: 0
-  m_Name: Powerup Audio Source
+  m_Name: Audio Source
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

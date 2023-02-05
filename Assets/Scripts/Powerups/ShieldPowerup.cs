@@ -12,7 +12,8 @@ public class ShieldPowerup : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             other.GetComponent<HealthComponent>().shield += _shieldPowerup;
-            //_audioSource.PlayOneShot(_powerupClip);
+            _audioSource = GameObject.FindGameObjectWithTag("Powerup").GetComponent<AudioSource>();
+            _audioSource.PlayOneShot(_powerupClip);
             Destroy(gameObject);
         }
     }

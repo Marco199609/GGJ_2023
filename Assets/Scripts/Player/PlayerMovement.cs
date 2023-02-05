@@ -18,8 +18,6 @@ public class PlayerMovement : MonoBehaviour
             float vertical = Input.GetAxis("Vertical");
             _moveDirection = (Camera.main.transform.right * horizontal + Camera.main.transform.forward * vertical).normalized * speed;
 
-            print(_moveDirection);
-
             if (Input.GetButtonDown("Jump"))
             {
                 _moveDirection.y = jumpSpeed;

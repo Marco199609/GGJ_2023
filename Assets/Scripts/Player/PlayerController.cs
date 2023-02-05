@@ -4,8 +4,11 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerRotation))]
 [RequireComponent(typeof(PlayerAnimate))]
 [RequireComponent(typeof(PlayerAttack))]
+[RequireComponent(typeof(PlayerUI))]
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] private int _playerDamage = 20;
+
     [Header("Variables de movimiento")]
     [SerializeField] private float _speed = 12.0f;
     [SerializeField] private float _jumpSpeed = 8.0f;
@@ -20,9 +23,16 @@ public class PlayerController : MonoBehaviour
     private PlayerRotation _playerRotation;
     private PlayerAnimate _playerAnimate;
     private PlayerAttack _playerAttack;
+    private PlayerUI _playerUI;
 
     [Header("Variables de camara")]
     [SerializeField] private GameObject _virtualCam;
+
+    [Header("Variables de interfaz")]
+    [SerializeField] private GameObject _shieldFill;
+    [SerializeField] private GameObject[] _UIImages;
+    [SerializeField] private GameObject _enemyUI;
+    [SerializeField] private GameObject _enemyUIHealth;
 
 
     void Start()
@@ -31,8 +41,11 @@ public class PlayerController : MonoBehaviour
         _playerRotation = GetComponent<PlayerRotation>();
         _playerAnimate = GetComponent<PlayerAnimate>();
         _playerAttack = GetComponent<PlayerAttack>();
+        _playerUI = GetComponent<PlayerUI>();
 
         _controller = GetComponent<CharacterController>();
+
+
     }
 
     // Update is called once per frame
@@ -40,7 +53,9 @@ public class PlayerController : MonoBehaviour
     {
         _playerMovement.Move(_controller, _speed, _jumpSpeed, _gravity, _playerAttack.IsAttacking);
         _playerRotation.Rotate(_playerModel, _virtualCam);
-        _playerAttack.Attack(_playerMovement.Jumping);
+        _playerAttack.Attack(_playerModel, _playerMovement.Jumping, _playerDamage);
         _playerAnimate.Animate(_playerMovement.Jumping, _playerAttack.IsAttacking, _playerAnimator);
+
+        _playerUI.UpdateUI(_UIImages, _playerModel, _shieldFill, GetComponent<HealthComponent>(), _enemyUI, _enemyUIHealth);
     }
 }

@@ -12,7 +12,7 @@ public class HealthPowerup : MonoBehaviour
         if(other.CompareTag("Player"))
         {
             other.GetComponent<HealthComponent>().health += _healthPowerup;
-            _audioSource.PlayOneShot(_powerupClip);
+            //_audioSource.PlayOneShot(_powerupClip);
             Destroy(gameObject);
         }
     }

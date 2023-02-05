@@ -19,7 +19,6 @@ public class EnemyController : MonoBehaviour
         _player = FindObjectOfType<PlayerController>();
     }
 
-
     // Update is called once per frame
     void Update()
     {
@@ -35,9 +34,8 @@ public class EnemyController : MonoBehaviour
 
         if (_attack)
             _attackScript.Attack();
+        
+        _animateScript.ActiveAnimation(_player,_attackScript.IsAttacking,animator);
+        
     }
-
-
-
-
 }

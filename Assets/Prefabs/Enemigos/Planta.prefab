@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4313954566990198755}
   - component: {fileID: 896749897159604294}
   - component: {fileID: 3140436167212665996}
+  - component: {fileID: 4933801429796293630}
   m_Layer: 0
   m_Name: Planta Carnivora Azul
   m_TagString: Untagged
@@ -83,6 +84,26 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!95 &4933801429796293630
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3500966510756605273}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &9130025257226521596
 GameObject:
   m_ObjectHideFlags: 0
@@ -129,7 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce2245fc5790edd4db0038cb7d388a09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
+  animator: {fileID: 4933801429796293630}
 --- !u!114 &9130025257226521598
 MonoBehaviour:
   m_ObjectHideFlags: 0

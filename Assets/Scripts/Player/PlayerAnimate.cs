@@ -7,12 +7,13 @@ public class PlayerAnimate : MonoBehaviour
     private bool _idle, _run;
     private HealthComponent _healthComponent;
 
-    public void Animate(bool jump, bool isAttacking, Animator playerAnimator)
+    public void Animate(bool jump, bool isAttacking, Animator playerAnimator, AudioSource audioSource, AudioClip footstepSound)
     {
-
         MoveAnimation(jump, playerAnimator);
         AttackAnimation(isAttacking, playerAnimator);
         DeathAnimation(playerAnimator);
+
+        FootStepSounds(audioSource, footstepSound); //Move to own script
     }
 
     private void MoveAnimation(bool jump, Animator playerAnimator)
@@ -47,5 +48,11 @@ public class PlayerAnimate : MonoBehaviour
         {
             playerAnimator.SetBool("Die", true);
         }
+    }
+
+    private void FootStepSounds(AudioSource audioSource, AudioClip footstepSound)
+    {
+        if (_run && !audioSource.isPlaying)
+            audioSource.PlayOneShot(footstepSound, 0.15f);
     }
 }

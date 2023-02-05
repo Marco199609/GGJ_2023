@@ -189,8 +189,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _healthPowerup: 20
-  _powerupClip: {fileID: 8300000, guid: e209effe0ef48e048a150235e375ae00, type: 3}
-  _audioSource: {fileID: 2145285063524026106}
+  _powerupClip: {fileID: 8300000, guid: 8a4d7bd8800398d40abc1f84d6dfdcda, type: 3}
+  _audioSource: {fileID: 0}
 --- !u!65 &2138642331
 BoxCollider:
   m_ObjectHideFlags: 0

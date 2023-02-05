@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour
     {
         _playerMovement.Move(_controller, _speed, _jumpSpeed, _gravity, _playerAttack.IsAttacking);
         _playerRotation.Rotate(_playerModel, _virtualCam);
-        _playerAttack.Attack(_playerMovement.Jumping);
+        _playerAttack.Attack(_playerModel, _playerMovement.Jumping);
         _playerAnimate.Animate(_playerMovement.Jumping, _playerAttack.IsAttacking, _playerAnimator);
     }
 }

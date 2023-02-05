@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7142949694696704206}
   - component: {fileID: 543450652997941479}
   m_Layer: 0
-  m_Name: Planta Carnivora Azul
+  m_Name: PlantaCarnivoraAzul
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

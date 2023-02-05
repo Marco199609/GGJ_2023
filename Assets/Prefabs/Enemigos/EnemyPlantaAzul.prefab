@@ -71,7 +71,7 @@ GameObject:
   - component: {fileID: 9130025258369064609}
   - component: {fileID: 9130025258369064608}
   m_Layer: 0
-  m_Name: Planta
+  m_Name: EnemyPlantaAzul
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

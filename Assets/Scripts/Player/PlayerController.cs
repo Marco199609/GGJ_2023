@@ -4,6 +4,7 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerRotation))]
 [RequireComponent(typeof(PlayerAnimate))]
 [RequireComponent(typeof(PlayerAttack))]
+[RequireComponent(typeof(PlayerUI))]
 public class PlayerController : MonoBehaviour
 {
     [Header("Variables de movimiento")]
@@ -20,9 +21,13 @@ public class PlayerController : MonoBehaviour
     private PlayerRotation _playerRotation;
     private PlayerAnimate _playerAnimate;
     private PlayerAttack _playerAttack;
+    private PlayerUI _playerUI;
 
     [Header("Variables de camara")]
     [SerializeField] private GameObject _virtualCam;
+
+    [Header("Variables de interfaz")]
+    [SerializeField] private GameObject[] _UIImages;
 
 
     void Start()
@@ -31,8 +36,11 @@ public class PlayerController : MonoBehaviour
         _playerRotation = GetComponent<PlayerRotation>();
         _playerAnimate = GetComponent<PlayerAnimate>();
         _playerAttack = GetComponent<PlayerAttack>();
+        _playerUI = GetComponent<PlayerUI>();
 
         _controller = GetComponent<CharacterController>();
+
+
     }
 
     // Update is called once per frame
@@ -42,5 +50,7 @@ public class PlayerController : MonoBehaviour
         _playerRotation.Rotate(_playerModel, _virtualCam);
         _playerAttack.Attack(_playerModel, _playerMovement.Jumping);
         _playerAnimate.Animate(_playerMovement.Jumping, _playerAttack.IsAttacking, _playerAnimator);
+
+        _playerUI.UpdateUI(_UIImages, GetComponent<HealthComponent>());
     }
 }

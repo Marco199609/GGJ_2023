@@ -14,6 +14,10 @@ public class PlayerRotation : MonoBehaviour
             targetRotation = new Vector3(0, Camera.main.transform.rotation.eulerAngles.y, 0);
         else if(Input.GetAxisRaw("Vertical") < 0)
             targetRotation = new Vector3(0, Camera.main.transform.rotation.eulerAngles.y - 180, 0);
+        else if(Input.GetAxisRaw("Horizontal") > 0)
+            targetRotation = new Vector3(0, Camera.main.transform.rotation.eulerAngles.y + 90, 0);
+        else if (Input.GetAxisRaw("Horizontal") < 0)
+            targetRotation = new Vector3(0, Camera.main.transform.rotation.eulerAngles.y - 90, 0);
 
         playerModel.transform.localRotation = Quaternion.Lerp(playerModel.  transform.localRotation, Quaternion.Euler(targetRotation), _rotateSpeed);
     }

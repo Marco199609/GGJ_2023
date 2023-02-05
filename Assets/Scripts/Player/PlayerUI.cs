@@ -7,7 +7,9 @@ public class PlayerUI : MonoBehaviour
 {
     private int _healthUIIndex;
     private float _UIUpdateTimer;
-    public void UpdateUI(GameObject[] UIImages, GameObject shieldFill, HealthComponent health)
+    Ray _ray;
+    private RaycastHit _hit;
+    public void UpdateUI(GameObject[] UIImages, GameObject playerModel, GameObject shieldFill, HealthComponent health, GameObject enemyUI, GameObject enemyUIHealth)
     {
         _UIUpdateTimer -= Time.deltaTime;
 
@@ -18,10 +20,12 @@ public class PlayerUI : MonoBehaviour
         }
 
         shieldFill.GetComponent<Image>().fillAmount = health.shield / 100;
+
+        EnemyHealthUI(playerModel, enemyUI, enemyUIHealth);
     }
 
 
-    private void HealthUI(GameObject[] UIImages, HealthComponent health)
+    private void HealthUI(GameObject[] UIImages,  HealthComponent health)
     {
         if (health.health > 0 && health.health < 20) _healthUIIndex = 1;
         if (health.health >= 20 && health.health < 40) _healthUIIndex = 2;
@@ -35,6 +39,29 @@ public class PlayerUI : MonoBehaviour
                 UIImages[i].gameObject.SetActive(true);
             else
                 UIImages[i].gameObject.SetActive(false);
+        }
+
+
+    }
+
+
+    private void EnemyHealthUI(GameObject playerModel, GameObject enemyUI, GameObject enemyUIHealth)
+    {
+        _ray.origin = transform.position;
+        _ray.direction = playerModel.transform.forward;
+
+        if (Physics.Raycast(_ray, out _hit, 2))
+        {
+            if (_hit.collider.CompareTag("Enemy"))
+            {
+                enemyUI.gameObject.SetActive(true);
+                enemyUIHealth.GetComponent<Image>().fillAmount = (float)_hit.collider.GetComponent<HealthComponent>().health / 100;
+            }
+        }
+
+        if (_hit.collider == null || !_hit.collider.CompareTag("Enemy"))
+        {
+            enemyUI.gameObject.SetActive(false);
         }
     }
 }

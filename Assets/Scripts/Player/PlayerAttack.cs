@@ -11,7 +11,7 @@ public class PlayerAttack : MonoBehaviour
 
     private Ray _ray;
     private RaycastHit _hit;
-    public void Attack(GameObject playerModel, bool jumping)
+    public void Attack(GameObject playerModel, bool jumping, int playerDamage)
     {
 
         if (Input.GetMouseButtonDown(0) && !jumping && !IsAttacking) //Si está atacando ya, no detecta el click hasta que la animación termine
@@ -21,11 +21,11 @@ public class PlayerAttack : MonoBehaviour
             _ray.origin = transform.position;
             _ray.direction = playerModel.transform.forward;
 
-            if (Physics.Raycast(_ray, out _hit, 1))
+            if (Physics.Raycast(_ray, out _hit, 2))
             {
                 if (_hit.collider.CompareTag("Enemy"))
                 {
-                    _hit.collider.GetComponent<HealthComponent>().health--;
+                    _hit.collider.GetComponent<HealthComponent>().health -= playerDamage;
 
                     for(int i  = 0; i < _hit.collider.GetComponentInChildren<Renderer>().materials.Length; i++)
                     {

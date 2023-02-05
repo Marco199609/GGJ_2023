@@ -37,6 +37,7 @@ public class PlayerController : MonoBehaviour
     [Header("Variables de sonido")]
     [SerializeField] private AudioSource _audioSource;
     [SerializeField] private AudioClip _attackSound;
+    [SerializeField] private AudioClip _footstepSound;
 
     void Start()
     {
@@ -57,7 +58,7 @@ public class PlayerController : MonoBehaviour
         _playerMovement.Move(_controller, _speed, _jumpSpeed, _gravity, _playerAttack.IsAttacking);
         _playerRotation.Rotate(_playerModel, _virtualCam);
         _playerAttack.Attack(_playerModel, _playerMovement.Jumping, _playerDamage, _audioSource, _attackSound);
-        _playerAnimate.Animate(_playerMovement.Jumping, _playerAttack.IsAttacking, _playerAnimator);
+        _playerAnimate.Animate(_playerMovement.Jumping, _playerAttack.IsAttacking, _playerAnimator, _audioSource, _footstepSound);
         _playerUI.UpdateUI(_UIImages, _playerModel, _shieldFill, GetComponent<HealthComponent>(), _enemyUI, _enemyUIHealth);
     }
 }

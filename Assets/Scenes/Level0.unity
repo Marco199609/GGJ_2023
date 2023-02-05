@@ -1992,6 +1992,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 57490076, guid: d814eadd09016c5478df882544a56931, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6905500427744132090, guid: d814eadd09016c5478df882544a56931, type: 3}
       propertyPath: m_Name
       value: Player
@@ -2064,6 +2068,10 @@ PrefabInstance:
       propertyPath: _enemyUIHealth
       value: 
       objectReference: {fileID: 107699666}
+    - target: {fileID: 6905500427744132092, guid: d814eadd09016c5478df882544a56931, type: 3}
+      propertyPath: _footstepSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 9c5e655a0d1685a4f8381f019ad7add5, type: 3}
     - target: {fileID: 6905500427744132092, guid: d814eadd09016c5478df882544a56931, type: 3}
       propertyPath: _UIImages.Array.data[0]
       value: 

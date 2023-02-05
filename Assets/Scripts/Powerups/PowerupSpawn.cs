@@ -8,6 +8,6 @@ public class PowerupSpawn : MonoBehaviour
     private void OnDestroy()
     {
         if (!this.gameObject.scene.isLoaded) return;
-        Instantiate(_powerup, new Vector3(transform.position.x, 1.5f, transform.position.z), Quaternion.identity);
+        Instantiate(_powerup, new Vector3(transform.position.x, transform.position.y + 1.5f, transform.position.z), Quaternion.identity);
     }
 }

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4128393394431534872}
   - component: {fileID: 9116076307626863235}
   - component: {fileID: 3880487987374833430}
+  - component: {fileID: 7208950256806932083}
   m_Layer: 0
   m_Name: EnemyHumanoid
   m_TagString: Enemy
@@ -78,6 +79,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b41b92a85b8f8b4aaa2ba1c4344b5af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyDamage: 5
 --- !u!114 &3880487987374833430
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -92,6 +94,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   shield: 0
+--- !u!114 &7208950256806932083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 545920951756467137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f824fa5fbde799041814d3646b59d37a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _powerup: {fileID: 7882459085166840971, guid: 9bc3cb4fdfd45ce44a21f36d8848cc12, type: 3}
 --- !u!1 &545920953468643683
 GameObject:
   m_ObjectHideFlags: 0

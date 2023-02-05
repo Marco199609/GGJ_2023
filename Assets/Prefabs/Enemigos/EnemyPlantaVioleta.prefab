@@ -60,6 +60,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b4c3b3ebcf395f40b12f4c1dab452b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyDamage: 2
 --- !u!114 &8147302184339576038
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83,6 +84,7 @@ GameObject:
   - component: {fileID: 9130025258369064623}
   - component: {fileID: 9130025258369064609}
   - component: {fileID: 9130025258369064608}
+  - component: {fileID: -2500395460579182150}
   m_Layer: 6
   m_Name: EnemyPlantaVioleta
   m_TagString: Enemy
@@ -133,6 +135,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.7544179, y: 1.7997174, z: 1.1123955}
   m_Center: {x: -0.00895828, y: 0.83560526, z: 0.1608187}
+--- !u!114 &-2500395460579182150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9130025258369064619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f824fa5fbde799041814d3646b59d37a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _powerup: {fileID: 7891304629363872525, guid: 75101dde1cda6f942a854831a691c939, type: 3}
 --- !u!1001 &2283210043970301662
 PrefabInstance:
   m_ObjectHideFlags: 0

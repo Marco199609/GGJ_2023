@@ -8,7 +8,10 @@ public class EnemyPlantHumanoidController : MonoBehaviour
     private PlayerController _playerController;
     private bool attack;
     private bool run;
-    
+
+    [SerializeField] private float enemyDamage, damageTimer = 1.3f;
+    private float enemyDamageTimer = 1.3f;
+
     void Start()
     {
         _playerController = FindObjectOfType<PlayerController>();
@@ -34,6 +37,23 @@ public class EnemyPlantHumanoidController : MonoBehaviour
         if (Vector3.Distance(_playerController.transform.position, transform.position) < 2f)
         {
             attack = true;
+
+
+            //Limita el ataque del enemigo
+            enemyDamageTimer -= Time.deltaTime;
+
+            if(enemyDamageTimer <= 0)
+            {
+                var healthPlayer = _playerController.GetComponent<HealthComponent>();
+                if (healthPlayer.shield > 0)
+                    healthPlayer.shield -= enemyDamage;
+                else
+                    healthPlayer.health -= (int) enemyDamage;
+                enemyDamageTimer = 1.3f;
+
+            }
+
+            print(enemyDamageTimer);
         }
         else
             attack = false;

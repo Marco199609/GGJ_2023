@@ -5,9 +5,10 @@ using UnityEngine;
 
 public class EnemyAttack : MonoBehaviour
 {
-    
+
     public bool IsAttacking { get; set; }
     private float _attackDuration = 1f, _attackTimer;
+    [SerializeField] private float enemyDamage;
     private Ray _ray;
 
     private void Start()
@@ -19,7 +20,7 @@ public class EnemyAttack : MonoBehaviour
     {
         var player = FindObjectOfType<PlayerController>();
 
-        if (Vector3.Distance(player.transform.position,transform.position)<2)
+        if (Vector3.Distance(player.transform.position,transform.position) < 5)
         {
             if (player!=null)
             {
@@ -30,9 +31,9 @@ public class EnemyAttack : MonoBehaviour
                     StartCoroutine("AnimatedHit",player);
                     var healthPlayer = player.GetComponent<HealthComponent>();
                     if (healthPlayer.shield > 0)
-                        healthPlayer.shield--;
+                        healthPlayer.shield -= enemyDamage;
                     else
-                        healthPlayer.health--;
+                        healthPlayer.health -= (int) enemyDamage;
                 }
             }
         }

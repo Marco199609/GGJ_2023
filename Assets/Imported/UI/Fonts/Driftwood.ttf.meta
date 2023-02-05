@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: ef6523d42df28a44daff85db9a8b2847
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Drift Wood
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 23be20cace2091a48aa89afc8a2b602f, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

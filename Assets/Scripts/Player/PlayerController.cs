@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject _virtualCam;
 
     [Header("Variables de interfaz")]
+    [SerializeField] private GameObject _shieldFill;
     [SerializeField] private GameObject[] _UIImages;
 
 
@@ -51,6 +52,6 @@ public class PlayerController : MonoBehaviour
         _playerAttack.Attack(_playerModel, _playerMovement.Jumping);
         _playerAnimate.Animate(_playerMovement.Jumping, _playerAttack.IsAttacking, _playerAnimator);
 
-        _playerUI.UpdateUI(_UIImages, GetComponent<HealthComponent>());
+        _playerUI.UpdateUI(_UIImages, _shieldFill, GetComponent<HealthComponent>());
     }
 }

@@ -3,7 +3,77 @@ guid: c9a7dbd8ef6e3374eb5c4d013c9dda73
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Espinas
+    second: {fileID: 2100000, guid: 3f652f4a823ada64ea5606f36c43f354, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Establo
+    second: {fileID: 2100000, guid: e14c9a035c9c25b43bb774446142f028, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: EstabloLateral
+    second: {fileID: 2100000, guid: 462fb76529a9f3449a182a2c3b629632, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material
+    second: {fileID: 2100000, guid: 3585006b182007b418c34309dbe42e0b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.003
+    second: {fileID: 2100000, guid: dd4621b3cbbf7ee41b0d103ed14bb4c4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.004
+    second: {fileID: 2100000, guid: 235bcd8924b118341827212c897bdea7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.005
+    second: {fileID: 2100000, guid: 580f77011f6f67a469293354553c5bbd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.007
+    second: {fileID: 2100000, guid: 09babc2c28a87ae4a88a94de78419f36, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Molino
+    second: {fileID: 2100000, guid: be95a282c38d430488e9d25d6e6f9e4d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "Monta\xF1a"
+    second: {fileID: 2100000, guid: a4e231d045d58e54b93ae15502218a59, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PlayerGranjero
+    second: {fileID: 2100000, guid: 5a15a1ffa01f3204388a8471183abfd7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Silo
+    second: {fileID: 2100000, guid: f02c856ea4d182b4d975eb171351081a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SueloGranja
+    second: {fileID: 2100000, guid: bdbb4410434b7bf4daee50f585388170, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Terreno2
+    second: {fileID: 2100000, guid: f2f9052a0a830e447a6b37c03ed7cfe9, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

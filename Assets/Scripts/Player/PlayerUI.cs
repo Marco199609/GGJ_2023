@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerUI : MonoBehaviour
 {
     private int _healthUIIndex;
     private float _UIUpdateTimer;
-    public void UpdateUI(GameObject[] UIImages, HealthComponent health)
+    public void UpdateUI(GameObject[] UIImages, GameObject shieldFill, HealthComponent health)
     {
         _UIUpdateTimer -= Time.deltaTime;
 
@@ -15,6 +16,8 @@ public class PlayerUI : MonoBehaviour
             HealthUI(UIImages, health);
             _UIUpdateTimer = 1f;
         }
+
+        shieldFill.GetComponent<Image>().fillAmount = health.shield / 100;
     }
 
 

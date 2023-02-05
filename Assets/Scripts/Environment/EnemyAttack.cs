@@ -31,6 +31,7 @@ public class EnemyAttack : MonoBehaviour
                     
                     var playerCollider = hit.collider;
                     StartCoroutine("AnimatedHit",playerCollider);
+                    playerCollider.GetComponent<HealthComponent>().health--;
                 }
             }
         }

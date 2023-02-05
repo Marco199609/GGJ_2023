@@ -46,9 +46,12 @@ public class PlayerAttack : MonoBehaviour
                 _attackTimer = _attackDuration; //El contador se resetea
 
                 //Cuando el ataque termina, el enemigo vuelve a su color original
-                for (int i = 0; i < _hit.collider.GetComponentInChildren<Renderer>().materials.Length; i++)
+                if(_hit.collider != null && _hit.collider.CompareTag("Enemy"))
                 {
-                    _hit.collider.GetComponentInChildren<Renderer>().materials[i].color = Color.white; //Cuando termina el ataque, el material vuelva a su color original
+                    for (int i = 0; i < _hit.collider.GetComponentInChildren<Renderer>().materials.Length; i++)
+                    {
+                        _hit.collider.GetComponentInChildren<Renderer>().materials[i].color = Color.white; //Cuando termina el ataque, el material vuelva a su color original
+                    }
                 }
             }
         }

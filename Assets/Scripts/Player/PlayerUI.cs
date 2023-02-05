@@ -32,7 +32,7 @@ public class PlayerUI : MonoBehaviour
         if (health.health >= 20 && health.health < 40) _healthUIIndex = 2;
         if (health.health >= 40 && health.health < 60) _healthUIIndex = 3;
         if (health.health >= 60 && health.health < 80) _healthUIIndex = 4;
-        if (health.health >= 80 && health.health < 100) _healthUIIndex = 5;
+        if (health.health >= 80 && health.health <= 100) _healthUIIndex = 5;
 
         for(int i = 0; i < UIImages.Length; i++)
         {

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HealthComponent : MonoBehaviour
 {
-    public int health;
+    public int health, shield;
 
     private void Update()
     {

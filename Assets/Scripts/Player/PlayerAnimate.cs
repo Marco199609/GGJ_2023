@@ -53,6 +53,6 @@ public class PlayerAnimate : MonoBehaviour
     private void FootStepSounds(AudioSource audioSource, AudioClip footstepSound)
     {
         if (_run && !audioSource.isPlaying)
-            audioSource.PlayOneShot(footstepSound, 0.15f);
+            audioSource.PlayOneShot(footstepSound, 0.05f);
     }
 }

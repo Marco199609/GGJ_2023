@@ -23,7 +23,7 @@ public class EnemyController : MonoBehaviour
     void Update()
     {
         var dir = _player.transform.position;
-        dir.y = 1f;
+        dir.y = transform.position.y;
         transform.LookAt(dir);
         
         
@@ -35,7 +35,7 @@ public class EnemyController : MonoBehaviour
         if (_attack)
             _attackScript.Attack();
         
-        _animateScript.ActiveAnimation(_player,_attackScript.IsAttacking,animator);
+        //_animateScript.ActiveAnimation(_player,_attackScript.IsAttacking,animator);
         
     }
 }

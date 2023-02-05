@@ -106,6 +106,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 4
+  shield: 0
 --- !u!65 &9130025258369064608
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -177,7 +178,7 @@ PrefabInstance:
     - target: {fileID: 5866666021909216657, guid: 92e4a1bde6b03584fb70b66d35e25b6e, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: e723a80bdbfc7c649bf2d6cd88d5b860, type: 2}
+      objectReference: {fileID: 9100000, guid: f2b347d10ad2e8c48a17d1269bb0fefc, type: 2}
     - target: {fileID: 7205140776170859923, guid: 92e4a1bde6b03584fb70b66d35e25b6e, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 

@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _speed = 12.0f;
     [SerializeField] private float _jumpSpeed = 8.0f;
     [SerializeField] private float _gravity = 20.0f;
+    [SerializeField] private GameObject _playerModel;
     private CharacterController _controller;
 
     [Header("Variables de animación")]
@@ -19,6 +20,9 @@ public class PlayerController : MonoBehaviour
     private PlayerRotation _playerRotation;
     private PlayerAnimate _playerAnimate;
     private PlayerAttack _playerAttack;
+
+    [Header("Variables de camara")]
+    [SerializeField] private GameObject _virtualCam;
 
 
     void Start()
@@ -35,7 +39,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         _playerMovement.Move(_controller, _speed, _jumpSpeed, _gravity, _playerAttack.IsAttacking);
-        _playerRotation.Rotate();
+        _playerRotation.Rotate(_playerModel, _virtualCam);
         _playerAttack.Attack(_playerMovement.Jumping);
         _playerAnimate.Animate(_playerMovement.Jumping, _playerAttack.IsAttacking, _playerAnimator);
     }

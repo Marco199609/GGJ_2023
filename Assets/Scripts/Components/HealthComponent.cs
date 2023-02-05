@@ -10,7 +10,8 @@ public class HealthComponent : MonoBehaviour
 
     private void Update()
     {
-        if(health <= 0) Destroy(gameObject); //Elimina el objeto si la salud llega a cero
+        if (!this.CompareTag("Player"))
+            if(health <= 0) Destroy(gameObject); //Elimina el objeto si la salud llega a cero
 
         shield -= Time.deltaTime * 0.5f;
 

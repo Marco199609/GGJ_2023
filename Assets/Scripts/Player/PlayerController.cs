@@ -55,7 +55,6 @@ public class PlayerController : MonoBehaviour
         _playerRotation.Rotate(_playerModel, _virtualCam);
         _playerAttack.Attack(_playerModel, _playerMovement.Jumping, _playerDamage);
         _playerAnimate.Animate(_playerMovement.Jumping, _playerAttack.IsAttacking, _playerAnimator);
-
         _playerUI.UpdateUI(_UIImages, _playerModel, _shieldFill, GetComponent<HealthComponent>(), _enemyUI, _enemyUIHealth);
     }
 }

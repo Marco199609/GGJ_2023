@@ -19,7 +19,7 @@ public class Trampas : MonoBehaviour
         {
             foreach (var espina in espinas)
             {
-                espina.ActivateAnimation();
+                //espina.ActivateAnimation();
             }
         }
     }
